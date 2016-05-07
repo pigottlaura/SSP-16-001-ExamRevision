@@ -15,7 +15,7 @@ var f = new Person("Joseph", 23);
 
 var family = [a, b, c, d, e, f];
 
-var filename = "./family.js";
+var filename = "./family.json";
 
 console.log(family);
 

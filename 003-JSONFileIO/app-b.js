@@ -1,6 +1,6 @@
 var fs = require("fs");
 
-var filename = "./myObject.js";
+var filename = "./myObject.json";
 var me = {};
 
 fs.exists(filename, function(exists){
