@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1 Log in so we can say hi :)
+  
+  form(method="POST", action="/login")
+    label(for="name")
+    input(type="text" name="name")
+    br
+    input(type="submit" value="Login")
