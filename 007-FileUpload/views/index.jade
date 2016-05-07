@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  
+  form(method="POST" action="/uploadFile" enctype="multipart/form-data")
+    input(type="file" name="myFile")
+    br
+    input(type="submit" value="Upload")
+  
+  if(files && files.length > 0)
+    ul
+      -for(var i = 0; i < files.length; i++)
+        li
+          if(files[i].mimetype == "image/jpeg")
+            img(src="#{files[i].path}" alt="#{files[i].filename}")
+          |#{files[i].filename}
