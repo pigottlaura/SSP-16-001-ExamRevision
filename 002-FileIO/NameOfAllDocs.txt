@@ -1,0 +1,4 @@
+DocA.txt
+DocB.txt
+DocC.txt
+LoremIpsum.txt
