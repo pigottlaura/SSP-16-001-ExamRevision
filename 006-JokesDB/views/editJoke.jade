@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to the Jokes Database
+  
+  h2 Add a new Joke
+  form(method="POST" action="/updateJoke")
+    label(for="editedJoke") Joke:
+    input(type="text" name="editedJoke" value="#{joke.content}")
+    input(type="hidden" name="editedJokeId" value="#{joke.id}")
+    br
+    input(type="submit" value="Update Joke")

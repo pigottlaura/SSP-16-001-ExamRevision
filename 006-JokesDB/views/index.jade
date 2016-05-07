@@ -14,5 +14,9 @@ block content
   ul
     -for(var i = 0; i < allJokes.length; i++)
       li #{allJokes[i].content}
-        button
-          a(href="/deleteJoke/#{allJokes[i].id}") Delete
+        ul
+          li
+            button
+              a(href="/deleteJoke/#{allJokes[i].id}") Delete
+            button
+              a(href="/editJoke/#{allJokes[i].id}") Edit

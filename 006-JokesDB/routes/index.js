@@ -21,13 +21,36 @@ router.post("/createJoke", function (req, res, next) {
 });
 
 router.get("/deleteJoke/:jokeId", function (req, res, next) {
-  for(var i = 0; i < allJokes.length; i++)
-  {
-    if(req.params.jokeId == allJokes[i].id){
-      allJokes.splice(i, 1);
+  getJoke(req.params.jokeId, function (jokeIndex) {
+    allJokes.splice(jokeIndex, 1);
+    res.redirect("/");
+  });
+});
+
+router.get("/editJoke/:jokeId", function (req, res, next) {
+  getJoke(req.params.jokeId, function (jokeIndex) {
+    res.render("editJoke", { joke: allJokes[jokeIndex] });
+  });
+});
+
+router.post("/updateJoke", function (req, res, next) {
+  getJoke(req.body.editedJokeId, function (jokeIndex) {
+    allJokes[jokeIndex].content = req.body.editedJoke;
+    res.redirect("/");
+  });
+});
+
+function getJoke(_id, cb) {
+  var jokeIndex = -1;
+
+  for (var i = 0; i < allJokes.length; i++) {
+    if (_id == allJokes[i].id) {
+      jokeIndex = i;
+      break;
     }
   }
-  res.redirect("/");
-});
+
+  cb(jokeIndex);
+}
 
 module.exports = router;
