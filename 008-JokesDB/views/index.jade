@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to the Jokes Database
+  
+  h2 Add a new Joke
+  form(method="POST" action="/createJoke")
+    label(for="newJoke") New Joke:
+    input(type="text" name="newJoke")
+    br
+    input(type="submit" value="Add Joke")
+    
+  ul
+    -for(var i = 0; i < allJokes.length; i++)
+      li #{allJokes[i].content}
