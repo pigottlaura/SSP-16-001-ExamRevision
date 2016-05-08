@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1 Welcome to your Shopping List
+  
+  form(method="POST" action="/addNewListItem")
+    input(type="text" name="listItem")
+    br
+    input(type="submit" value="Add to Shopping List")
+  
+  if(shoppingList.length > 0)
+    ul
+      -for(var i = 0; i < shoppingList.length; i++)
+        li #{shoppingList[i].title}
+          ul
+            li
+              a(href="/deleteItem/#{shoppingList[i]._id}")
+                button Delete
