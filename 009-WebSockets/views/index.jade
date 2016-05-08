@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  
+  form(method="POST" action="/" id="messageBox")
+    label(for="username") Username:
+    input(type="text" id="username" name="username")
+    br
+    label(for="newMessage") Message:
+    input(type="text" id="newMessage" name="newMessage")
+    br
+    input(type="submit" value="Send")
+  
+  ul(id="messageLog")
